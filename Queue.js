@@ -25,7 +25,13 @@ class Queue {
      */
     enqueue(item) {
         // Implementér denne metode
-        // ...
+        if (this.#count == this.#arraySize) {
+             throw new error ("queue is full");
+        }
+        this.#data[this.#last]=item;
+        this.#last++;       
+        this.#last %= this.#arraySize;
+        this.#count++;
     }
 
     dequeue() {
